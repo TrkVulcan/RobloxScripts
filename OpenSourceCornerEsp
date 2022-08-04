@@ -1,12 +1,12 @@
 Credits = "rang#2415"
 local Settings = {
-    Enabled = true,
+    Enabled = false,
     BoxType = "Corner", -- Corner,Square
     EspColor = Color3.fromRGB(255,0,0),
-    EspOutline = true,
-    Names = true,
-    Distance = true,
-    HealthBar = true
+    EspOutline = false,
+    Names = false,
+    Distance = false,
+    HealthBar = false
 }
 
 function CreateEsp(Player)
@@ -312,3 +312,4 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
       CreateEsp(v)
    end
 end)
+return Settings
