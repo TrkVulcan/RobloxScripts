@@ -1,6 +1,6 @@
 --[[
     Message Translator
-    Made by Aim, updated by cli
+    Made by Aim, updated by cli, Updated by rang#1234
     Credits to Riptxde for the sending chathook
 --]]
 pcall(function()
@@ -302,7 +302,6 @@ pcall(function()
     
     game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(messageData) 
         get(game:GetService("Players")[messageData.FromSpeaker],messageData.Message)
-        print(game:GetService("Players")[messageData.FromSpeaker],tostring(messageData.Message))
     end)
     
     local sendEnabled = false
