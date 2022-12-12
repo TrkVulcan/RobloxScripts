@@ -63,7 +63,7 @@ function CreateEsp(Player)
                 Health.Center = true
                 Health.Outline = true,
                 Health.OutlineColor = Color3.fromRGB(0,0,0),
-                Health.Position = HealthBarOutline.Position + Vector2.new(1,-1 + HealthBarOutline.Size.Y)
+                Health.Position = Vector2.new(Target2dPosition.X - Box.Size.X / 2,Target2dPosition.Y - Box.Size.Y / 2) + Vector2.new(0,height + 2) + Vector2.new(1,-1 + HealthBarOutline.Size.Y)
                 Health.Font = 2
                 Health.Size = 15
             else
