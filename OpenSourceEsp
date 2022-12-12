@@ -4,6 +4,7 @@ local Config = {
     BoxOutline        = false,
     BoxColor          = Color3.fromRGB(255,255,255),
     BoxOutlineColor   = Color3.fromRGB(0,0,0),
+    Health            = true,
     HealthBar         = false,
     HealthBarSide     = "Left", -- Left,Bottom,Right
     Names             = false,
@@ -15,7 +16,7 @@ local Config = {
 }
 
 function CreateEsp(Player)
-    local Box,BoxOutline,Name,HealthBar,HealthBarOutline = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square")
+    local Box,BoxOutline,Name,HealthBar,HealthBarOutline,Health = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Square")
     local Updater = game:GetService("RunService").RenderStepped:Connect(function()
     if Player.Character ~= nil and Player.Character:FindFirstChild("Humanoid") ~= nil and Player.Character:FindFirstChild("HumanoidRootPart") ~= nil and Player.Character.Humanoid.Health > 0 and Player.Character:FindFirstChild("Head") ~= nil then
             local Target2dPosition,IsVisible = workspace.CurrentCamera:WorldToViewportPoint(Player.Character.HumanoidRootPart.Position)
@@ -54,6 +55,19 @@ function CreateEsp(Player)
                 Name.Size = Config.NamesSize
             else
                 Name.Visible = false
+            end
+            if Config.Health then
+                Health.Visible = IsVisible
+                Health.Color = Color3.fromRGB(255,255,255)
+                Health.Text = tostring(p.NRPBS.Health.Value .. "/" .. p.NRPBS.MaxHealth.Value)
+                Health.Center = true
+                Health.Outline = true,
+                Health.OutlineColor = Color3.fromRGB(0,0,0),
+                Health.Position = HealthBarOutline.Position + Vector2.new(1,-1 + HealthBarOutline.Size.Y)
+                Health.Font = 2
+                Health.Size = 15
+            else
+                Health.Visible = false
             end
             if Config.HealthBar then
                 HealthBarOutline.Visible = IsVisible
