@@ -1,14 +1,14 @@
 -- made by rang#2415 or https://v3rmillion.net/member.php?action=profile&uid=1906262
 local Config = {
-    Box               = false,
-    BoxOutline        = false,
+    Box               = true,
+    BoxOutline        = true,
     BoxColor          = Color3.fromRGB(255,255,255),
     BoxOutlineColor   = Color3.fromRGB(0,0,0),
     Health            = true,
-    HealthBar         = false,
+    HealthBar         = true,
     HealthBarSide     = "Left", -- Left,Bottom,Right
-    Names             = false,
-    NamesOutline      = false,
+    Names             = true,
+    NamesOutline      = true,
     NamesColor        = Color3.fromRGB(255,255,255),
     NamesOutlineColor = Color3.fromRGB(0,0,0),
     NamesFont         = 2, -- 0,1,2,3
@@ -46,7 +46,7 @@ function CreateEsp(Player)
             if Config.Names then
                 Name.Visible = IsVisible
                 Name.Color = Config.NamesColor
-                Name.Text = Player.Name.." "..math.floor((workspace.CurrentCamera.CFrame.p - Player.Character.HumanoidRootPart.Position).magnitude).."m"
+                Name.Text = tostring(Player.NRPBS.Health.Value .. "/" .. Player.NRPBS.MaxHealth.Value)
                 Name.Center = true
                 Name.Outline = Config.NamesOutline
                 Name.OutlineColor = Config.NamesOutlineColor
@@ -62,8 +62,8 @@ function CreateEsp(Player)
                 Health.Text = tostring(p.NRPBS.Health.Value .. "/" .. p.NRPBS.MaxHealth.Value)
                 Health.Center = true
                 Health.Outline = true,
-                Health.OutlineColor = NamesOutlineColor
-                Health.Position = Vector2.new(Target2dPosition.X - Box.Size.X / 2,Target2dPosition.Y - Box.Size.Y / 2) + Vector2.new(0,height + 2) + Vector2.new(1,-1 + HealthBarOutline.Size.Y)
+                Health.OutlineColor = Color3.fromRGB(0,0,0),
+                Health.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + 20)
                 Health.Font = 2
                 Health.Size = 15
             else
