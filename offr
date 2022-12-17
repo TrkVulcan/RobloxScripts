@@ -1,13 +1,13 @@
 -- made by rang#2415 or https://v3rmillion.net/member.php?action=profile&uid=1906262
 local Config = {
-    Box               = false,
-    BoxOutline        = false,
+    Box               = true,
+    BoxOutline        = true,
     BoxColor          = Color3.fromRGB(255,255,255),
     BoxOutlineColor   = Color3.fromRGB(0,0,0),
-    HealthBar         = false,
+    HealthBar         = true,
     HealthBarSide     = "Left", -- Left,Bottom,Right
-    Names             = false,
-    NamesOutline      = false,
+    Names             = true,
+    NamesOutline      = true,
     NamesColor        = Color3.fromRGB(255,255,255),
     NamesOutlineColor = Color3.fromRGB(0,0,0),
     NamesFont         = 2, -- 0,1,2,3
